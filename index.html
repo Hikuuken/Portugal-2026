@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viaggio Portogallo</title>
+  <style>
+    :root{
+      --bg:#f4f1eb;
+      --card:#ffffff;
+      --ink:#1b1b1b;
+      --muted:#6d6d6d;
+      --line:#ddd4c7;
+      --accent:#8f6b3d;
+      --accent-2:#c8a979;
+      --shadow:0 10px 30px rgba(0,0,0,0.08);
+      --radius:18px;
+      --radius-sm:12px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        linear-gradient(180deg, rgba(244,241,235,0.96), rgba(244,241,235,1)),
+        var(--bg);
+    }
+
+    a{color:inherit}
+    img{max-width:100%; display:block}
+
+    .wrap{
+      width:min(var(--max), calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter: blur(10px);
+      background:rgba(244,241,235,0.82);
+      border-bottom:1px solid rgba(0,0,0,0.06);
+    }
+
+    .topbar-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      padding:12px 0;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      font-size:.95rem;
+    }
+
+    .hero{
+      padding:26px 0 18px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.4fr .9fr;
+      gap:18px;
+    }
+
+    .panel{
+      background:var(--card);
+      border:1px solid rgba(0,0,0,0.06);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero-main{
+      min-height:360px;
+      position:relative;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.50)),
+        url('https://commons.wikimedia.org/wiki/Special:FilePath/Lisbon%20Cityscape%20-21%20%2852216200917%29.jpg') center/cover no-repeat;
+      color:#fff;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .hero-content{
+      padding:26px;
+      width:100%;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.18);
+      font-size:.86rem;
+      margin-bottom:12px;
+      backdrop-filter: blur(6px);
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size:clamp(2rem, 4vw, 3.6rem);
+      line-height:0.95;
+      letter-spacing:-0.04em;
+    }
+
+    .subtitle{
+      margin:0;
+      max-width:62ch;
+      color:rgba(255,255,255,.92);
+      font-size:1rem;
+    }
+
+    .hero-side{
+      padding:18px;
+      display:grid;
+      gap:14px;
+      align-content:start;
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .stat{
+      border:1px solid var(--line);
+      border-radius:var(--radius-sm);
+      padding:14px;
+      background:#fcfbf8;
+    }
+
+    .stat .label{
+      font-size:.82rem;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    .stat .value{
+      font-size:1.25rem;
+      font-weight:800;
+      line-height:1.1;
+    }
+
+    .section{
+      padding:10px 0 18px;
+    }
+
+    .section-title{
+      margin:0 0 14px;
+      font-size:1.35rem;
+      letter-spacing:-0.03em;
+    }
+
+    .city{
+      overflow:hidden;
+    }
+
+    .city-cover{
+      min-height:210px;
+      position:relative;
+      display:flex;
+      align-items:flex-end;
+      color:#fff;
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
+    }
+
+    .city-cover::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.60));
+    }
+
+    .city-cover-content{
+      position:relative;
+      z-index:1;
+      padding:22px;
+      width:100%;
+    }
+
+    .city-cover h2{
+      margin:0 0 4px;
+      font-size:clamp(1.7rem, 3vw, 2.5rem);
+      letter-spacing:-0.04em;
+    }
+
+    .city-cover p{
+      margin:0;
+      color:rgba(255,255,255,.9);
+      max-width:60ch;
+    }
+
+    .city-body{
+      padding:18px;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:14px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius-sm);
+      padding:15px;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:1rem;
+      letter-spacing:-0.02em;
+    }
+
+    .mini{
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.5;
+    }
+
+    .big{
+      font-size:1.5rem;
+      font-weight:800;
+      line-height:1.1;
+      margin:6px 0;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:6px 10px;
+      background:#f6efe5;
+      color:#6b4a1e;
+      border:1px solid #ead8be;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+    }
+
+    .route{
+      display:grid;
+      gap:12px;
+    }
+
+    .route-step{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius-sm);
+      padding:14px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .route-step strong{
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    .budget-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:18px;
+    }
+
+    .budget-box{
+      padding:18px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    th, td{
+      text-align:left;
+      padding:12px 10px;
+      border-bottom:1px solid var(--line);
+      vertical-align:middle;
+    }
+
+    th{
+      font-size:.84rem;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    input[type="url"],
+    select,
+    textarea{
+      width:100%;
+      border:1px solid #d8d0c4;
+      border-radius:10px;
+      padding:10px 12px;
+      font:inherit;
+      background:#fff;
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .row-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+
+    button{
+      appearance:none;
+      border:none;
+      cursor:pointer;
+      border-radius:12px;
+      padding:11px 14px;
+      font:inherit;
+      font-weight:700;
+      background:#1f1f1f;
+      color:#fff;
+    }
+
+    button.alt{
+      background:#fff;
+      color:#1f1f1f;
+      border:1px solid var(--line);
+    }
+
+    .summary-cards{
+      display:grid;
+      gap:12px;
+    }
+
+    .summary-card{
+      border:1px solid var(--line);
+      border-radius:var(--radius-sm);
+      padding:15px;
+      background:#fff;
+    }
+
+    .summary-card .k{
+      color:var(--muted);
+      font-size:.82rem;
+      margin-bottom:6px;
+    }
+
+    .summary-card .v{
+      font-size:1.5rem;
+      font-weight:800;
+      line-height:1.1;
+    }
+
+    .links-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .link-card{
+      padding:18px;
+    }
+
+    .stack{
+      display:grid;
+      gap:12px;
+    }
+
+    .footer-note{
+      margin:20px 0 32px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .small-btn{
+      padding:8px 10px;
+      border-radius:10px;
+      font-size:.88rem;
+    }
+
+    @media (max-width: 960px){
+      .hero-grid,
+      .budget-grid,
+      .links-grid,
+      .city-body{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .stat-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .nav{
+        width:100%;
+      }
+
+      .nav a{
+        flex:1;
+        text-align:center;
+      }
+
+      h1{
+        line-height:1.02;
+      }
+
+      th:nth-child(3),
+      td:nth-child(3){
+        display:none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">Portogallo — piano viaggio</div>
+      <nav class="nav">
+        <a href="#itinerario">Tappe</a>
+        <a href="#budget">Budget</a>
+        <a href="#alloggi">Alloggi</a>
+        <a href="#note">Note</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero wrap">
+    <div class="hero-grid">
+      <section class="panel hero-main">
+        <div class="hero-content">
+          <div class="eyebrow">Road trip leggero, pulito, interattivo</div>
+          <h1 id="tripTitle">Viaggio in Portogallo</h1>
+          <p class="subtitle">
+            Lisbona in 3, poi Nazaré come passaggio, Aveiro come pernottamento in 2 e Porto per 3 notti.
+            Tutto qui dentro: tappe, spese, quote per persona e note da tenere a tiro.
+          </p>
+        </div>
+      </section>
+
+      <aside class="panel hero-side">
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="label">Date</div>
+            <div class="value">11 → 17</div>
+          </div>
+          <div class="stat">
+            <div class="label">Persone</div>
+            <div class="value">3 → 2</div>
+          </div>
+          <div class="stat">
+            <div class="label">Auto</div>
+            <div class="value">Lisbona → Porto</div>
+          </div>
+          <div class="stat">
+            <div class="label">Tappe</div>
+            <div class="value">4 principali</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Riepilogo rapido</h3>
+          <div class="mini">
+            <strong>Lisbona</strong> — 2 notti, 3 persone<br>
+            <strong>Nazaré</strong> — passaggio<br>
+            <strong>Aveiro</strong> — 1 notte, 2 persone<br>
+            <strong>Porto</strong> — 3 notti, 2 persone
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Quota chiara, senza casino</h3>
+          <div class="mini">
+            La pagina calcola in automatico:
+            <br>— la quota della persona che fa solo Lisbona
+            <br>— la quota di ciascuna delle 2 persone che continuano fino a Porto
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section" id="itinerario">
+      <h2 class="section-title">Itinerario</h2>
+
+      <div class="panel city">
+        <div
+          class="city-cover"
+          style="background-image:
+            linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.05)),
+            url('https://commons.wikimedia.org/wiki/Special:FilePath/Lisbon%20Cityscape%20-21%20%2852216200917%29.jpg');"
+        >
+          <div class="city-cover-content">
+            <h2>Lisbona</h2>
+            <p>Prima base del viaggio. Qui siete in 3.</p>
+          </div>
+        </div>
+        <div class="city-body">
+          <div class="card">
+            <h3>Soggiorno</h3>
+            <div class="big">11 → 13</div>
+            <div class="mini">2 notti • 3 persone</div>
+          </div>
+          <div class="card">
+            <h3>Alloggio</h3>
+            <div class="big">€420</div>
+            <div class="mini">Quota a testa: <strong>€140</strong></div>
+          </div>
+          <div class="card">
+            <h3>Nota</h3>
+            <div class="mini">
+              Appartamento a Lisbona / Chiado.<br>
+              Perfetto come prima base prima della parte in auto.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="panel city">
+        <div
+          class="city-cover"
+          style="background-image:
+            linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.05)),
+            url('https://commons.wikimedia.org/wiki/Special:FilePath/Nazar%C3%A9%20Beach.jpg');"
+        >
+          <div class="city-cover-content">
+            <h2>Nazaré</h2>
+            <p>Tappa di passaggio, senza pernottamento.</p>
+          </div>
+        </div>
+        <div class="city-body">
+          <div class="card">
+            <h3>Passaggio</h3>
+            <div class="big">Stop tecnico</div>
+            <div class="mini">Nessuna notte prevista qui.</div>
+          </div>
+          <div class="card">
+            <h3>Tempi</h3>
+            <div class="mini">
+              Lisbona → Nazaré: <strong>circa 2h</strong><br>
+              Nazaré → Aveiro: <strong>circa 2h</strong>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Idea</h3>
+            <div class="mini">
+              Pausa, vista oceano, qualcosa da mangiare, poi si riparte.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="panel city">
+        <div
+          class="city-cover"
+          style="background-image:
+            linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.05)),
+            url('https://commons.wikimedia.org/wiki/Special:FilePath/Aveiro%20Canal.jpg');"
+        >
+          <div class="city-cover-content">
+            <h2>Aveiro</h2>
+            <p>Pernottamento intermedio. Da qui in poi siete in 2.</p>
+          </div>
+        </div>
+        <div class="city-body">
+          <div class="card">
+            <h3>Soggiorno</h3>
+            <div class="big">13 → 14</div>
+            <div class="mini">1 notte • 2 persone</div>
+          </div>
+          <div class="card">
+            <h3>Hotel</h3>
+            <div class="big">€86</div>
+            <div class="mini">Quota a testa: <strong>€43</strong></div>
+          </div>
+          <div class="card">
+            <h3>Nota</h3>
+            <div class="mini">
+              Notte di mezzo: dormire, rimettere in fila le ossa, poi dritti verso Porto.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="panel city">
+        <div
+          class="city-cover"
+          style="background-image:
+            linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.05)),
+            url('https://commons.wikimedia.org/wiki/Special:FilePath/Ribeira%20do%20Porto.jpg');"
+        >
+          <div class="city-cover-content">
+            <h2>Porto</h2>
+            <p>Ultima base del viaggio. Qui restate in 2 per 3 notti.</p>
+          </div>
+        </div>
+        <div class="city-body">
+          <div class="card">
+            <h3>Soggiorno</h3>
+            <div class="big">14 → 17</div>
+            <div class="mini">3 notti • 2 persone</div>
+          </div>
+          <div class="card">
+            <h3>Airbnb</h3>
+            <div class="big">€400</div>
+            <div class="mini">Quota a testa: <strong>€200</strong></div>
+          </div>
+          <div class="card">
+            <h3>Nota</h3>
+            <div class="mini">
+              Base finale: girare, mangiare bene, e chiudere il viaggio con calma.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Spostamenti</h2>
+      <div class="panel" style="padding:18px;">
+        <div class="route">
+          <div class="route-step">
+            <div>
+              <strong>11 — Pickup auto</strong>
+              <div class="muted">Lisbona aeroporto • orario segnato: 15:30</div>
+            </div>
+            <span class="badge">Auto</span>
+          </div>
+
+          <div class="route-step">
+            <div>
+              <strong>Lisbona → Nazaré</strong>
+              <div class="muted">Circa 2 ore di guida</div>
+            </div>
+            <span class="badge">Tratta 1</span>
+          </div>
+
+          <div class="route-step">
+            <div>
+              <strong>Nazaré → Aveiro</strong>
+              <div class="muted">Circa 2 ore di guida</div>
+            </div>
+            <span class="badge">Tratta 2</span>
+          </div>
+
+          <div class="route-step">
+            <div>
+              <strong>Aveiro → Porto</strong>
+              <div class="muted">Ultimo trasferimento verso la base finale</div>
+            </div>
+            <span class="badge">Tratta 3</span>
+          </div>
+
+          <div class="route-step">
+            <div>
+              <strong>14 — Drop-off auto</strong>
+              <div class="muted">Porto aeroporto • orario segnato: 15:30</div>
+            </div>
+            <span class="badge">Consegna</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="budget">
+      <h2 class="section-title">Budget</h2>
+
+      <div class="budget-grid">
+        <div class="panel budget-box">
+          <table id="budgetTable">
+            <thead>
+              <tr>
+                <th>Voce</th>
+                <th>Totale €</th>
+                <th>Categoria</th>
+                <th>Diviso per</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="budgetRows">
+              <tr data-fixed="true">
+                <td><input type="text" value="Appartamento Lisbona"></td>
+                <td><input type="number" value="420" min="0" step="0.01"></td>
+                <td>
+                  <select>
+                    <option value="alloggio" selected>Alloggio</option>
+                    <option value="auto">Auto</option>
+                    <option value="extra">Extra</option>
+                  </select>
+                </td>
+                <td>
+                  <select>
+                    <option value="3" selected>3</option>
+                    <option value="2">2</option>
+                  </select>
+                </td>
+                <td></td>
+              </tr>
+
+              <tr data-fixed="true">
+                <td><input type="text" value="Hotel Aveiro"></td>
+                <td><input type="number" value="86" min="0" step="0.01"></td>
+                <td>
+                  <select>
+                    <option value="alloggio" selected>Alloggio</option>
+                    <option value="auto">Auto</option>
+                    <option value="extra">Extra</option>
+                  </select>
+                </td>
+                <td>
+                  <select>
+                    <option value="3">3</option>
+                    <option value="2" selected>2</option>
+                  </select>
+                </td>
+                <td></td>
+              </tr>
+
+              <tr data-fixed="true">
+                <td><input type="text" value="Airbnb Porto"></td>
+                <td><input type="number" value="400" min="0" step="0.01"></td>
+                <td>
+                  <select>
+                    <option value="alloggio" selected>Alloggio</option>
+                    <option value="auto">Auto</option>
+                    <option value="extra">Extra</option>
+                  </select>
+                </td>
+                <td>
+                  <select>
+                    <option value="3">3</option>
+                    <option value="2" selected>2</option>
+                  </select>
+                </td>
+                <td></td>
+              </tr>
+
+              <tr data-fixed="true">
+                <td><input type="text" value="Macchina"></td>
+                <td><input type="number" value="106" min="0" step="0.01"></td>
+                <td>
+                  <select>
+                    <option value="alloggio">Alloggio</option>
+                    <option value="auto" selected>Auto</option>
+                    <option value="extra">Extra</option>
+                  </select>
+                </td>
+                <td>
+                  <select>
+                    <option value="3">3</option>
+                    <option value="2" selected>2</option>
+                  </select>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="row-actions">
+            <button id="addRowBtn" type="button">Aggiungi extra</button>
+            <button id="resetBtn" type="button" class="alt">Reset extra</button>
+          </div>
+        </div>
+
+        <aside class="panel budget-box">
+          <div class="summary-cards">
+            <div class="summary-card">
+              <div class="k">Totale viaggio</div>
+              <div class="v" id="totalTrip">€0</div>
+            </div>
+
+            <div class="summary-card">
+              <div class="k">Totale alloggi</div>
+              <div class="v" id="totalStay">€0</div>
+            </div>
+
+            <div class="summary-card">
+              <div class="k">Totale auto</div>
+              <div class="v" id="totalCar">€0</div>
+            </div>
+
+            <div class="summary-card">
+              <div class="k">Quota persona che fa solo Lisbona</div>
+              <div class="v" id="soloLisbon">€0</div>
+            </div>
+
+            <div class="summary-card">
+              <div class="k">Quota per ciascuna delle 2 persone che continuano fino a Porto</div>
+              <div class="v" id="continuePorto">€0</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="alloggi">
+      <h2 class="section-title">Alloggi e link</h2>
+
+      <div class="links-grid">
+        <div class="panel link-card">
+          <h3>Riferimenti</h3>
+          <div class="stack">
+            <div>
+              <label class="mini">Lisbona</label>
+              <input id="linkLisbon" type="text" value="Spacious 1 bedroom apartment with a Parking Spot in Chiado" />
+            </div>
+            <div>
+              <label class="mini">Aveiro</label>
+              <input id="linkAveiro" type="text" value="Guarda Venezia Hotel" />
+            </div>
+            <div>
+              <label class="mini">Porto</label>
+              <input id="linkPorto" type="url" value="https://www.airbnb.co.uk/rooms/51635686?unique_share_id=b6ab6994-e679-4129-b4a2-8eac19dac7ec&viralityEntryPoint=1&s=76" />
+            </div>
+          </div>
+        </div>
+
+        <div class="panel link-card">
+          <h3>Comandi rapidi</h3>
+          <div class="stack">
+            <button class="alt" type="button" onclick="window.print()">Stampa / Salva PDF</button>
+            <button class="alt" type="button" id="copyPortoBtn">Copia link Porto</button>
+            <button class="alt" type="button" id="saveNoteBtn">Salva tutto nel browser</button>
+          </div>
+          <p class="footer-note" style="margin-bottom:0;">
+            I dati restano salvati nel browser del dispositivo grazie al localStorage.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="note">
+      <h2 class="section-title">Note libere</h2>
+      <div class="panel" style="padding:18px;">
+        <textarea id="tripNotes" placeholder="Prenotazioni, orari, ristoranti, parcheggi, roba da non dimenticare..."></textarea>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      App semplice, niente fronzoli: la apri, modifichi cifre e note, e lei si fa i conti da sola.
+    </p>
+  </main>
+
+  <script>
+    const budgetRows = document.getElementById('budgetRows');
+    const addRowBtn = document.getElementById('addRowBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const tripNotes = document.getElementById('tripNotes');
+    const saveNoteBtn = document.getElementById('saveNoteBtn');
+    const copyPortoBtn = document.getElementById('copyPortoBtn');
+
+    const STORAGE_KEY = 'portogallo_trip_app_v1';
+
+    function euro(value){
+      return new Intl.NumberFormat('it-IT', {
+        style: 'currency',
+        currency: 'EUR'
+      }).format(value || 0);
+    }
+
+    function createRow(data = {
+      name: 'Extra',
+      amount: 0,
+      category: 'extra',
+      split: 2
+    }){
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><input type="text" value="${data.name}"></td>
+        <td><input type="number" value="${data.amount}" min="0" step="0.01"></td>
+        <td>
+          <select>
+            <option value="alloggio" ${data.category === 'alloggio' ? 'selected' : ''}>Alloggio</option>
+            <option value="auto" ${data.category === 'auto' ? 'selected' : ''}>Auto</option>
+            <option value="extra" ${data.category === 'extra' ? 'selected' : ''}>Extra</option>
+          </select>
+        </td>
+        <td>
+          <select>
+            <option value="3" ${String(data.split) === '3' ? 'selected' : ''}>3</option>
+            <option value="2" ${String(data.split) === '2' ? 'selected' : ''}>2</option>
+          </select>
+        </td>
+        <td><button type="button" class="small-btn alt remove-row">X</button></td>
+      `;
+      budgetRows.appendChild(tr);
+      attachEventsToRow(tr);
+      saveData();
+      calculate();
+    }
+
+    function getRowsData(){
+      return [...budgetRows.querySelectorAll('tr')].map(tr => {
+        const inputs = tr.querySelectorAll('input, select');
+        return {
+          fixed: tr.dataset.fixed === 'true',
+          name: inputs[0].value,
+          amount: parseFloat(inputs[1].value) || 0,
+          category: inputs[2].value,
+          split: parseInt(inputs[3].value, 10) || 2
+        };
+      });
+    }
+
+    function calculate(){
+      const rows = getRowsData();
+
+      let totalTrip = 0;
+      let totalStay = 0;
+      let totalCar = 0;
+
+      let bucket3 = 0;
+      let bucket2 = 0;
+
+      rows.forEach(row => {
+        totalTrip += row.amount;
+
+        if(row.category === 'alloggio') totalStay += row.amount;
+        if(row.category === 'auto') totalCar += row.amount;
+
+        if(row.split === 3) bucket3 += row.amount;
+        if(row.split === 2) bucket2 += row.amount;
+      });
+
+      const soloLisbon = bucket3 / 3;
+      const continuePorto = (bucket3 / 3) + (bucket2 / 2);
+
+      document.getElementById('totalTrip').textContent = euro(totalTrip);
+      document.getElementById('totalStay').textContent = euro(totalStay);
+      document.getElementById('totalCar').textContent = euro(totalCar);
+      document.getElementById('soloLisbon').textContent = euro(soloLisbon);
+      document.getElementById('continuePorto').textContent = euro(continuePorto);
+    }
+
+    function attachEventsToRow(tr){
+      tr.querySelectorAll('input, select').forEach(el => {
+        el.addEventListener('input', () => {
+          calculate();
+          saveData();
+        });
+        el.addEventListener('change', () => {
+          calculate();
+          saveData();
+        });
+      });
+
+      const removeBtn = tr.querySelector('.remove-row');
+      if(removeBtn){
+        removeBtn.addEventListener('click', () => {
+          tr.remove();
+          calculate();
+          saveData();
+        });
+      }
+    }
+
+    function saveData(){
+      const data = {
+        rows: getRowsData(),
+        notes: tripNotes.value,
+        links: {
+          lisbon: document.getElementById('linkLisbon').value,
+          aveiro: document.getElementById('linkAveiro').value,
+          porto: document.getElementById('linkPorto').value
+        }
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    function loadData(){
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw){
+        [...budgetRows.querySelectorAll('tr')].forEach(attachEventsToRow);
+        calculate();
+        return;
+      }
+
+      try{
+        const data = JSON.parse(raw);
+
+        budgetRows.innerHTML = '';
+        data.rows.forEach(row => createRow(row));
+
+        if(data.notes) tripNotes.value = data.notes;
+        if(data.links){
+          if(data.links.lisbon) document.getElementById('linkLisbon').value = data.links.lisbon;
+          if(data.links.aveiro) document.getElementById('linkAveiro').value = data.links.aveiro;
+          if(data.links.porto) document.getElementById('linkPorto').value = data.links.porto;
+        }
+
+        calculate();
+      } catch(err){
+        console.error('Errore caricamento dati:', err);
+        [...budgetRows.querySelectorAll('tr')].forEach(attachEventsToRow);
+        calculate();
+      }
+    }
+
+    addRowBtn.addEventListener('click', () => {
+      createRow();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      const extras = [...budgetRows.querySelectorAll('tr')].filter(tr => tr.dataset.fixed !== 'true');
+      extras.forEach(tr => tr.remove());
+      calculate();
+      saveData();
+    });
+
+    tripNotes.addEventListener('input', saveData);
+
+    ['linkLisbon', 'linkAveiro', 'linkPorto'].forEach(id => {
+      document.getElementById(id).addEventListener('input', saveData);
+    });
+
+    saveNoteBtn.addEventListener('click', () => {
+      saveData();
+      alert('Dati salvati nel browser.');
+    });
+
+    copyPortoBtn.addEventListener('click', async () => {
+      const portoLink = document.getElementById('linkPorto').value;
+      try{
+        await navigator.clipboard.writeText(portoLink);
+        alert('Link Porto copiato.');
+      } catch{
+        alert('Copia non riuscita. Copialo a mano dal campo.');
+      }
+    });
+
+    loadData();
+  </script>
+</body>
+</html>

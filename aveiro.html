@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aveiro — Una notte che rallenta</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root{
+      --bg:#F6F1E8; --paper:#FFFDF9; --ink:#1F2A33; --muted:#66707A; --line:#D9D1C4;
+      --shadow:0 14px 35px rgba(31,42,51,.08); --radius:22px; --radius-sm:16px; --max:980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:"Inter",system-ui,sans-serif; color:var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(110,143,168,.10), transparent 32%),
+        radial-gradient(circle at top right, rgba(201,132,106,.10), transparent 28%),
+        var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max), calc(100% - 24px)); margin:0 auto;}
+    .topbar{
+      position:sticky; top:0; z-index:20; background:rgba(246,241,232,.86);
+      backdrop-filter:blur(12px); border-bottom:1px solid rgba(31,42,51,.08);
+    }
+    .topbar-inner{
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      padding:12px 0; flex-wrap:wrap;
+    }
+    .brand strong{display:block; font-size:1rem;}
+    .brand span{font-size:.82rem; color:var(--muted);}
+    .nav{display:flex; gap:10px; flex-wrap:wrap;}
+    .nav a{
+      padding:10px 14px; border-radius:999px; background:#fff;
+      border:1px solid rgba(31,42,51,.08); font-size:.94rem;
+    }
+    .hero{
+      min-height:420px; margin:22px 0 18px; border-radius:28px; overflow:hidden;
+      position:relative; display:flex; align-items:flex-end; box-shadow:var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(18,24,29,.14), rgba(18,24,29,.62)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Aveiro%20Canal.jpg") center/cover no-repeat;
+      color:#fff;
+    }
+    .hero-content{padding:28px; max-width:760px;}
+    .eyebrow{
+      display:inline-block; padding:8px 12px; border-radius:999px;
+      background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.24);
+      font-size:.84rem; margin-bottom:14px;
+    }
+    h1{
+      margin:0 0 10px; font-family:"DM Serif Display",serif; font-weight:400;
+      font-size:clamp(2.4rem, 6vw, 4.4rem); line-height:.95; letter-spacing:-.04em;
+    }
+    .subtitle{margin:0; color:rgba(255,255,255,.92); line-height:1.6; max-width:58ch;}
+    .section{
+      background:var(--paper); border:1px solid rgba(31,42,51,.08); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:22px; margin:0 0 16px;
+    }
+    .section h2{
+      margin:0 0 10px; font-family:"DM Serif Display",serif; font-size:1.9rem; font-weight:400;
+    }
+    .section p{margin:0; line-height:1.8;}
+    .section p + p{margin-top:14px;}
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+    .card{
+      background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); padding:16px;
+    }
+    .card h3{margin:0 0 8px; font-size:1rem;}
+    .card p{margin:0; color:var(--muted); line-height:1.65;}
+    .footer-nav{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin:18px 0 30px;
+    }
+    .footer-nav a{
+      padding:12px 16px; border-radius:14px; background:#fff; border:1px solid var(--line);
+      box-shadow:var(--shadow); font-weight:700;
+    }
+    .secret-link{color:inherit; text-decoration:none; cursor:pointer;}
+    .secret-link:hover,.secret-link:focus{color:inherit; text-decoration:none;}
+    @media (max-width:740px){.grid{grid-template-columns:1fr;} .hero-content{padding:22px;}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <strong>Aveiro</strong>
+        <span>Acqua ferma, luce chiara</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Torna al viaggio</a>
+        <a href="porto.html">Prossima tappa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">Noite de passagem</div>
+        <h1>Aveiro</h1>
+        <p class="subtitle">
+          Una notte sola, ma fatta bene: il tipo di pausa che non chiede molto e proprio per questo
+          mette ordine.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Il feel</h2>
+      <p>
+        Aveiro sembra fatta apposta per abbassare il tono del viaggio. Dopo la strada e il mare,
+        arriva con i suoi canali, con quella luce più quieta, con un ritmo che non chiede sforzo.
+        Non è una città da assaltare. È una città da attraversare bene, quasi in punta di piedi.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Come viverla bene</h2>
+      <p>
+        Qui basta poco per stare bene: camminare senza meta precisa, guardare l’acqua, scegliere un
+        posto semplice dove sedersi, lasciar scendere la sera senza opporre resistenza. Aveiro ha
+        qualcosa di gentile, ma non di sciocco. Ti fa rallentare senza sembrarti vuota.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>La notte giusta</h2>
+      <p>
+        Anche il cibo, qui, dovrebbe seguire lo stesso passo: qualcosa di buono, magari un dolce
+        locale, magari una cena tranquilla che non pretende di diventare memorabile.
+        <a class="secret-link" href="segreto.html?from=aveiro.html">
+          Poi, come sempre, salta fuori quel piccolo demone unto che ti convince che una notte sola
+          giustifichi una quantità di cibo da fiera di paese e una spesa da persona priva di
+          sorveglianza.
+        </a>
+        E a quel punto tanto vale accettare il colpo e andare fino in fondo.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Note pratiche</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Cosa cercare</h3>
+          <p>
+            Passeggiata lenta, acqua, una tavola tranquilla, un dolce preso senza fretta, e il
+            piacere di non dover dimostrare niente alla città.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Da ricordare</h3>
+          <p>
+            Una notte, poche pretese, occhi aperti. Aveiro non deve travolgervi: deve accompagnare.
+            È lì che colpisce bene.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-nav">
+      <a href="nazare.html">← Torna a Nazaré</a>
+      <a href="porto.html">Vai a Porto →</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lisbona — Luz mansa</title>
+  <title>Lisbona — Piera & Rossella</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,14 +19,12 @@
       --ink:#1F2A33;
       --muted:#66707A;
       --line:#D9D1C4;
-      --blue:#6E8FA8;
-      --terracotta:#C9846A;
-      --sage:#8FA89A;
       --shadow:0 14px 35px rgba(31,42,51,.08);
-      --radius:22px;
+      --radius:24px;
       --radius-sm:16px;
       --max:980px;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -37,81 +35,174 @@
         radial-gradient(circle at top right, rgba(201,132,106,.10), transparent 28%),
         var(--bg);
     }
+
     a{color:inherit;text-decoration:none}
     .wrap{width:min(var(--max), calc(100% - 24px)); margin:0 auto;}
+
     .topbar{
-      position:sticky; top:0; z-index:20;
+      position:sticky;
+      top:0;
+      z-index:20;
       background:rgba(246,241,232,.86);
       backdrop-filter:blur(12px);
       border-bottom:1px solid rgba(31,42,51,.08);
     }
+
     .topbar-inner{
-      display:flex; justify-content:space-between; align-items:center; gap:12px;
-      padding:12px 0; flex-wrap:wrap;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:12px 0;
+      flex-wrap:wrap;
     }
+
     .brand strong{display:block; font-size:1rem;}
     .brand span{font-size:.82rem; color:var(--muted);}
-    .nav{display:flex; gap:10px; flex-wrap:wrap;}
-    .nav a{
-      padding:10px 14px; border-radius:999px; background:#fff;
-      border:1px solid rgba(31,42,51,.08); font-size:.94rem;
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
     }
+
+    .nav a{
+      padding:10px 14px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid rgba(31,42,51,.08);
+      font-size:.94rem;
+    }
+
     .hero{
-      min-height:420px; margin:22px 0 18px; border-radius:28px; overflow:hidden;
-      position:relative; display:flex; align-items:flex-end;
+      min-height:430px;
+      margin:22px 0 18px;
+      border-radius:30px;
+      overflow:hidden;
+      position:relative;
+      display:flex;
+      align-items:flex-end;
       box-shadow:var(--shadow);
       background:
-        linear-gradient(180deg, rgba(18,24,29,.14), rgba(18,24,29,.62)),
+        linear-gradient(180deg, rgba(18,24,29,.14), rgba(18,24,29,.64)),
         url("https://commons.wikimedia.org/wiki/Special:FilePath/Lisbon%20Cityscape%20-21%20%2852216200917%29.jpg") center/cover no-repeat;
       color:#fff;
     }
-    .hero-content{padding:28px; max-width:760px;}
+
+    .hero-content{
+      padding:28px;
+      max-width:760px;
+    }
+
     .eyebrow{
-      display:inline-block; padding:8px 12px; border-radius:999px;
-      background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.24);
-      font-size:.84rem; margin-bottom:14px;
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.24);
+      font-size:.84rem;
+      margin-bottom:14px;
     }
+
     h1{
-      margin:0 0 10px; font-family:"DM Serif Display",serif; font-weight:400;
-      font-size:clamp(2.4rem, 6vw, 4.4rem); line-height:.95; letter-spacing:-.04em;
+      margin:0 0 10px;
+      font-family:"DM Serif Display",serif;
+      font-weight:400;
+      font-size:clamp(2.5rem, 6vw, 4.5rem);
+      line-height:.95;
+      letter-spacing:-.04em;
     }
-    .subtitle{margin:0; color:rgba(255,255,255,.92); line-height:1.6; max-width:58ch;}
+
+    .subtitle{
+      margin:0;
+      color:rgba(255,255,255,.92);
+      line-height:1.65;
+      max-width:58ch;
+    }
+
     .section{
-      background:var(--paper); border:1px solid rgba(31,42,51,.08);
-      border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:22px; margin:0 0 16px;
+      background:var(--paper);
+      border:1px solid rgba(31,42,51,.08);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+      margin:0 0 16px;
     }
+
     .section h2{
-      margin:0 0 10px; font-family:"DM Serif Display",serif; font-size:1.9rem; font-weight:400;
+      margin:0 0 12px;
+      font-family:"DM Serif Display",serif;
+      font-size:1.95rem;
+      font-weight:400;
       letter-spacing:-.03em;
     }
+
     .section p{
-      margin:0; color:var(--ink); line-height:1.8; font-size:1rem;
+      margin:0;
+      line-height:1.85;
+      font-size:1rem;
     }
+
     .section p + p{margin-top:14px;}
+
     .grid{
-      display:grid; grid-template-columns:1fr 1fr; gap:16px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
     }
+
     .card{
-      background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); padding:16px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius-sm);
+      padding:16px;
     }
-    .card h3{margin:0 0 8px; font-size:1rem;}
-    .card p{margin:0; color:var(--muted); line-height:1.65;}
+
+    .card h3{
+      margin:0 0 8px;
+      font-size:1rem;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
     .footer-nav{
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
       margin:18px 0 30px;
     }
+
     .footer-nav a{
-      padding:12px 16px; border-radius:14px; background:#fff;
-      border:1px solid var(--line); box-shadow:var(--shadow); font-weight:700;
+      padding:12px 16px;
+      border-radius:14px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      font-weight:700;
     }
-    .secret-link{
-      color:inherit; text-decoration:none; cursor:pointer;
+
+    .oni-link{
+      text-decoration:none;
+      color:inherit;
+      cursor:pointer;
+      font-size:1.05em;
+      vertical-align:baseline;
+      margin-left:2px;
     }
-    .secret-link:hover, .secret-link:focus{
-      color:inherit; text-decoration:none;
+
+    .oni-link:hover,
+    .oni-link:focus{
+      text-decoration:none;
+      color:inherit;
+      opacity:.9;
     }
-    @media (max-width: 740px){
+
+    @media (max-width:740px){
       .grid{grid-template-columns:1fr;}
       .hero-content{padding:22px;}
     }
@@ -122,8 +213,9 @@
     <div class="wrap topbar-inner">
       <div class="brand">
         <strong>Lisbona</strong>
-        <span>Luz mansa, tavole lunghe</span>
+        <span>Piera & Rossella</span>
       </div>
+
       <nav class="nav">
         <a href="index.html">Torna al viaggio</a>
         <a href="nazare.html">Prossima tappa</a>
@@ -134,66 +226,80 @@
   <main class="wrap">
     <section class="hero">
       <div class="hero-content">
-        <div class="eyebrow">Primeiro encontro</div>
+        <div class="eyebrow">Maio • primeira cidade</div>
         <h1>Lisbona</h1>
         <p class="subtitle">
-          Una città che non si concede in fretta: va salita piano, presa con fame buona e
-          lasciata entrare senza violenza.
+          La città entra bene quando non la forzi: sole sui muri, tavolini lenti,
+          salite che chiedono fiato e una fame elegante che dura più del previsto.
         </p>
       </div>
     </section>
 
     <section class="section">
-      <h2>Il feel</h2>
+      <h2>L’arrivo giusto</h2>
       <p>
-        Lisbona è una città che non va presa di petto. Va lasciata salire piano, come le sue
-        strade. Ti prende con la luce chiara sui muri, con i tetti rossi, con i tram gialli che
-        sembrano passare sempre al momento giusto. È una città da inizio viaggio fatto bene:
-        abbastanza viva da tenerti acceso, abbastanza morbida da non consumarti.
+        Piera, appena messo piede a Lisbona, capì di avere finalmente davanti il tipo di città che le
+        serviva. Luce chiara sui muri, aria già tiepida, quel modo tutto portoghese di sembrare luminosa
+        senza mettersi in mostra. Voleva solo camminare piano, fermarsi a un tavolino, bere un caffè
+        guardando la gente passare e lasciare che il mare, anche se non subito visibile, restasse lì
+        a lavorare sotto pelle.
+      </p>
+      <p>
+        Rossella invece durò sobria circa tre minuti. Guardò una vetrina di dolci, poi un’insegna,
+        poi un’altra vetrina, e disse che quella città aveva già preso una piega intelligente. Piera
+        le lanciò uno sguardo da lama sottile, uno di quelli che servono a ricordare al mondo intero
+        che le persone maleducate e i turisti che urlano andrebbero messi in una cesta e spediti via.
       </p>
     </section>
 
     <section class="section">
-      <h2>Come viverla bene</h2>
+      <h2>Come si lascia vivere</h2>
       <p>
-        Qui conviene camminare senza voler vincere niente. Chiado, Baixa, Alfama, un miradouro
-        preso con calma, una piazza che si apre all’improvviso, una chiesa fresca dopo il sole.
-        I luoghi principali meritano lo sguardo, certo, ma il punto non è collezionarli. Il punto
-        è sentire che la città vi si è appoggiata addosso per bene.
+        A Lisbona fecero la cosa migliore: non cercarono di vincere la città. Camminarono tra Chiado,
+        Baixa e Alfama senza trasformare il giorno in una caccia al trofeo. Piera rallentava davanti
+        alle piazze che si aprivano all’improvviso e ai miradouros dove il vento passava bene tra i
+        capelli. Rossella parlava troppo, rideva troppo, e ogni venti minuti sentiva il bisogno quasi
+        religioso di commentare cosa si sarebbe potuto mangiare lì, subito, o tra mezz’ora al massimo.
+      </p>
+      <p>
+        Fu in un bar con i tavolini all’aperto che la città prese davvero forma. Piera, col caffè in mano,
+        sembrava finalmente nel posto esatto che aveva sognato. Rossella stava già studiando la carta dei
+        dolci con la concentrazione sporca di chi sta per prendere una decisione discutibile, e disse che
+        un viaggio serio non può cominciare senza una quantità lievemente offensiva di zucchero
+        <a class="oni-link" href="segreto.html?from=lisbona.html" aria-label="Segreto di Rossella">👹</a>.
       </p>
     </section>
 
     <section class="section">
-      <h2>Un giorno perfetto</h2>
+      <h2>Il pomeriggio che resta addosso</h2>
       <p>
-        Lisbona si vive meglio così: una mattina lenta, un pranzo che si allunga, un caffè preso
-        senza fretta, una strada bella rifatta due volte. A tavola non serve cercare il colpo di
-        teatro: basta mangiare bene, bere qualcosa di giusto e lasciare che il pomeriggio perda un
-        po’ i bordi.
-        <a class="secret-link" href="segreto.html?from=lisbona.html">
-          Poi, senza alcun motivo nobile, arriva quel momento da fogna interiore in cui due pastéis
-          non bastano più e spendere altri soldi in zucchero sembra un principio morale.
-        </a>
-        E forse è anche per questo che la città resta addosso: perché sa essere elegante senza
-        impedirti di essere un po’ ridicolo.
+        Continuarono a salire e scendere come se il fiato fosse parte del prezzo d’ingresso. Lisbona faceva
+        il suo mestiere: una chiesa fresca dopo il sole, una strada bella rifatta due volte, una vista sui
+        tetti rossi che non aveva bisogno di spiegazioni. Piera la prendeva nel modo giusto, con la calma di
+        chi sa che le cose più belle si rovinano appena le stringi troppo.
+      </p>
+      <p>
+        Rossella invece viveva ogni sosta come un potenziale eccesso: un altro bicchiere, un altro assaggio,
+        una teoria improvvisata su come diventare ricca senza faticare e senza mai rinunciare alla colazione.
+        Piera la lasciava parlare, ma solo finché la scena restava decorosa.
       </p>
     </section>
 
     <section class="section">
-      <h2>A tavola e note pratiche</h2>
+      <h2>Cosa vale la pena ricordare</h2>
       <div class="grid">
         <div class="card">
-          <h3>Cose da cercare</h3>
+          <h3>Atmosfera</h3>
           <p>
-            Tavole semplici, cucina portoghese fatta bene, baccalà, sardine quando è stagione,
-            dolci, caffè presi con calma e senza il bisogno di trasformare ogni pasto in un evento.
+            Lisbona rende di più se la prendi con passo largo: caffè, salite, miradouros, un pranzo che si
+            allunga e la sensazione che il giorno non debba dimostrare niente.
           </p>
         </div>
         <div class="card">
-          <h3>Da ricordare</h3>
+          <h3>Nota pratica</h3>
           <p>
-            Scarpe comode, sempre. Lisbona sale e scende senza pietà. Meglio non voler fare tutto:
-            questa città rende di più quando lascia ancora qualcosa in sospeso.
+            Scarpe comode, sempre. Le salite non scherzano. Meglio fare meno e farlo bene: questa città
+            lavora meglio quando lascia ancora un po’ di desiderio.
           </p>
         </div>
       </div>
